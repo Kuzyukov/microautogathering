@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yourkey'
+SECRET_KEY = 'vtp(5=yqa0wyv_pyo8&)_tedo4(@s714t7u4z*v7#=f&#tl-8d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'microautogathering.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db',
-        'USER' : 'user_name',
+        'NAME': 'postdb',
+        'USER' : 'postgressuser',
         'PASSWORD' : 'password',
         'HOST' : 'localhost',
         'PORT' : '',
