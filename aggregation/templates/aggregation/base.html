@@ -43,24 +43,9 @@
   	</div>
 </nav>
 
-<div class="container-fluid">
-    <div class="row d-flex d-md-block flex-nowrap wrapper">
-{% block addLeftBarNav %}{% endblock %}
-<div class="col-sm-auto" id="content">
-            {% block hideUselessText %}
-            <div class="page-header">
-                <h2>О нас</h2>
-            </div>
-            {% endblock %}
-            <hr>
-            {% block sorting %}
-            <p class="lead">История </p>
-            {% endblock %}
-            <hr>
-            <p>заглушка</p>
-            </div>
-          </div>
 
+      {% block addLeftBarNav %}{% endblock %}
+      {% block sorting %}{% endblock %}
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

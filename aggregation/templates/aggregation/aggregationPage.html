@@ -6,72 +6,42 @@
 {% endblock %}
 
 {% block addLeftBarNav %}
-<div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show fixed-top" id="sidebar">
-                <div class="list-group border-0 card text-center text-md-left">
-                <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-dashboard"></i> <span class="d-none d-md-inline">Item 1</span> </a>
-                <div class="collapse" id="menu1" data-parent="#sidebar">
-                    <a href="#menu1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 1 </a>
-                    <div class="collapse" id="menu1sub1" data-parent="#menu1">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem a</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem b</a>
-                        <a href="#menu1sub1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem c </a>
-                        <div class="collapse" id="menu1sub1sub1">
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem c.1</a>
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem c.2</a>
-                        </div>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem d</a>
-                        <a href="#menu1sub1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem e </a>
-                        <div class="collapse" id="menu1sub1sub2">
-                            <a href="#" class="list-group-item">Subitem e.1</a>
-                            <a href="#" class="list-group-item">Subitem e.2</a>
-                        </div>
-                    </div>
-                    <a href="#menu1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 2</a>
-                    <div class="collapse" id="menu1sub2" data-parent="#menu1">
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 1 a</a>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 2 b</a>
-                        <a href="#menu1sub1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 3 c </a>
-                        <div class="collapse" id="menu1sub1sub1">
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem 3 c.1</a>
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem 3 c.2</a>
-                        </div>
-                        <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 4 d</a>
-                        <a href="#menu1sub1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 5 e </a>
-                        <div class="collapse" id="menu1sub1sub2">
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub2">Subitem 5 e.1</a>
-                            <a href="#" class="list-group-item" data-parent="#menu1sub1sub2">Subitem 5 e.2</a>
-                        </div>
-                    </div>
-                    <a href="#" class="list-group-item">Subitem 3</a>
-                </div>
-                <a href="#" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">Item 2</span></a>
-                <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-book"></i> <span class="d-none d-md-inline">Item 3 </span></a>
-                <div class="collapse" id="menu3" data-parent="#sidebar">
-                    <a href="#" class="list-group-item" data-parent="#menu3">3.1</a>
-                    <a href="#menu3sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">3.2 </a>
-                    <div class="collapse" id="menu3sub2">
-                        <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 a</a>
-                        <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 b</a>
-                        <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 c</a>
-                    </div>
-                    <a href="#" class="list-group-item" data-parent="#menu3">3.3</a>
-                </div>
-                <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-heart"></i> <span class="d-none d-md-inline">Item 4</span></a>
-                <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-list"></i> <span class="d-none d-md-inline">Item 5</span></a>
-                <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-clock-o"></i> <span class="d-none d-md-inline">Link</span></a>
-            </div>
-        </div>
-
-        <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
-                    <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>
+<!-- Sidebar Navigation-->
+<nav id="sidebar">
+  <!-- Sidebar Header-->
+  <div class="sidebar-header d-flex align-items-center">
+    <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+    <div class="title">
+      <h1 class="h5">Mark Stephen</h1>
+      <p>Web Designer</p>
+    </div>
+  </div>
+  <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+  <ul class="list-unstyled">
+          <li><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+          <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
+          <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+          <li class="active"><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
+          <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+              <li><a href="#">Page</a></li>
+              <li><a href="#">Page</a></li>
+              <li><a href="#">Page</a></li>
+            </ul>
+          </li>
+          <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
+  </ul><span class="heading">Extras</span>
+  <ul class="list-unstyled">
+    <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
+    <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
+    <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
+  </ul>
+</nav>
 {% endblock %}
-{% block hideUselessText %}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-{% endblock %}
+{% block hideUselessText %}{% endblock %}
 
 {% block sorting %}
+<hr>
 <p>some sorting</p>
+<hr>
 {% endblock %}
