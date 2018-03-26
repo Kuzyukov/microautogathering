@@ -11,3 +11,12 @@ def mainPage(request):
 
 def statisticPage(request):
     return render(request, 'aggregation/statisticPage.html')
+
+def forumPage(request):
+    return render(request, 'aggregation/forumPage.html')
+
+def loginPage(request):
+    return render(request, 'aggregation/loginPage.html')
+
+def objectPage(request):
+    return render(request, 'aggregation/objectPage.html')

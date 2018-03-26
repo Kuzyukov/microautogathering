@@ -27,7 +27,8 @@
 
 
 <nav id="sidebar">
-  <span class="heading">Main</span>
+  <!--<span class="heading">Main</span>
+
   <ul class="list-unstyled">
           <li><a href="#"> Home </a></li>
           <li><a href="#"> Tables </a></li>
@@ -36,8 +37,84 @@
           <li><a href="#" class="search-open nav-link"> Больше настроек </a></li>
             </ul>
           </li>
+  </ul>-->
+
+<div class="row">
+  <select name="account col-sm" class="form-control" >
+              <option>Марка авто</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+  </select>
+</div>
+<div class="row">
+  <select name="account col-sm" class="form-control" >
+              <option>Модель авто</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+  </select>
+</div>
+<div class="row">
+  <select name="account col-sm" class="form-control" >
+              <option>КПП</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+  </select>
+</div>
+<div class="row">
+  <select name="account col-sm" class="form-control" >
+              <option>Топливо</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+  </select>
+</div>
+<div class="row">
+  <select name="account col-sm" class="form-control" >
+              <option>Кузов</option>
+              <option>option 2</option>
+              <option>option 3</option>
+              <option>option 4</option>
+  </select>
+</div>
+<hr>
+
+<span class="col-sm heading">Пробег</span>
+  <div class="form-group row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-md">
+          <input type="text" placeholder="От" class="form-control">
+        </div>
+        <div class="col-md">
+          <input type="text" placeholder="До" class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <span class="col-sm heading">Цена</span>
+    <div class="form-group row">
+      <div class="col-sm">
+        <div class="row">
+          <div class="col-md">
+            <input type="text" placeholder="От" class="form-control">
+          </div>
+          <div class="col-md">
+            <input type="text" placeholder="До" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <ul class="list-unstyled">
+    <!-- <li><a href="#" class="search-open nav-link"> Больше настроек </a>  </li>-->
+    <li><a href="#" class="nav-link"> Поиск </a>  </li>
   </ul>
 </nav>
+
 <!-- Sidebar Navigation end-->
 {% endblock %}
 {% block hideUselessText %}{% endblock %}
@@ -47,7 +124,14 @@
 {% endblock %}
 
 {% block listAuto %}
+<a href="{% url 'objectPage' %}"> some auto</a>
+<hr>
 <p>some auto</p>
+<hr>
+<p>some auto</p>
+<hr>
+<p>some auto</p>
+<hr>
 <!-- ЗДЕСЬ БУДУТ ОБЪЯВЛЕНИЯ -->
 <!-- ЗДЕСЬ БУДУТ ОБЪЯВЛЕНИЯ -->
 <!-- ЗДЕСЬ БУДУТ ОБЪЯВЛЕНИЯ -->
