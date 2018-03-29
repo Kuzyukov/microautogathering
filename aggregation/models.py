@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 
 
 
-
+"""
 
 
 class AutoRuImages(models.Model):
@@ -13,29 +13,6 @@ class AutoRuImages(models.Model):
     ImageLink = models.CharField("Ссылка на объявление", max_lenght=500)
 
 class AutoRuObject(models.Model):
-    """
-    Название объявления
-    Ссылка на объявление
-    Картинки
-    Модель
-    Марка
-    Тип кузова
-    Цвет
-    Пробег
-    Год выпуска
-    Тип двигателя (бензин\дизель)
-    Тип коробки передач
-    Привод
-    Объём двигателя
-    Мощьность двигателя
-    Дата загрузки объявления на сайт
-    Количество владельцев
-    Описание
-    Наличие документов (да/нет)
-    На ходу (да/нет)
-    Обмен (да/нет)
-    Дата, когда объявление было загружено в базу
-    """
     AdName = models.CharField("Ссылка на объявление", max_lenght=500)
     linkOnAd = models.CharField("Ссылка на объявление", max_lenght=500)
     ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
@@ -115,7 +92,7 @@ class MainAdObject(models.Model):
     AutoRu = models.ForeignKey(AutoRuObject, verbose_name="АвтоРУ")
     Avito = models.ForeignKey(AvitoObject, verbose_name="Авито")
     Drom = models.ForeignKey(DromObject, verbose_name="Дром")
-class Comments(models.Model)
+class Comments(models.Model):
     user = models.ForeignKey(
         User,
         verbose_name="Пользователь",
@@ -124,3 +101,4 @@ class Comments(models.Model)
         MainAdObject,
         verbose_name="Комментируемое Объявление",
         on_delete=model.CASCADE)
+"""
