@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth import grt_user_model
+from django.contrib.auth import get_user_model
 
 
 
@@ -14,6 +14,7 @@ class AutoRuImages(models.Model):
 
 class AutoRuObject(models.Model):
     """
+    Название объявления
     Ссылка на объявление
     Картинки
     Модель
@@ -35,6 +36,7 @@ class AutoRuObject(models.Model):
     Обмен (да/нет)
     Дата, когда объявление было загружено в базу
     """
+    AdName = models.CharField("Ссылка на объявление", max_lenght=500)
     linkOnAd = models.CharField("Ссылка на объявление", max_lenght=500)
     ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
     MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
@@ -60,6 +62,7 @@ class AvitoImages(models.Model):
     ImageLink = models.CharField("Ссылка на объявление", max_lenght=500)
 
 class AvitoObject(models.Model):
+    AdName = models.CharField("Ссылка на объявление", max_lenght=500)
     linkOnAd = models.CharField("Ссылка на объявление", max_lenght=500)
     ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
     MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
@@ -85,6 +88,7 @@ class DromImages(models.Model):
     ImageLink = models.CharField("Ссылка на объявление", max_lenght=500)
 
 class DromObject(models.Model):
+    AdName = models.CharField("Ссылка на объявление", max_lenght=500)
     linkOnAd = models.CharField("Ссылка на объявление", max_lenght=500)
     ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
     MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
@@ -111,3 +115,12 @@ class MainAdObject(models.Model):
     AutoRu = models.ForeignKey(AutoRuObject, verbose_name="АвтоРУ")
     Avito = models.ForeignKey(AvitoObject, verbose_name="Авито")
     Drom = models.ForeignKey(DromObject, verbose_name="Дром")
+class Comments(models.Model)
+    user = models.ForeignKey(
+        User,
+        verbose_name="Пользователь",
+        on_delete=model.CASCADE)
+    new = models.ForeignKey(
+        MainAdObject,
+        verbose_name="Комментируемое Объявление",
+        on_delete=model.CASCADE)
