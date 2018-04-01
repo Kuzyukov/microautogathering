@@ -11,10 +11,10 @@ def get_html(url, useragent=None, proxy=None): #получение html кода
     return r.text
 
 def main():
-    adLinks = useragents = open('someparsingresults/AmruLinks.txt').read().split('\n')
+    adLinks = useragents = open('someparsingresults/YoulaLinks.txt').read().split('\n')
 
-    useragents = open('useragents.txt').read().split('\n')
-    proxies = open('proxies.txt').read().split('\n')
+    useragents = open('hideparcing/useragents.txt').read().split('\n')
+    proxies = open('hideparcing/proxies.txt').read().split('\n')
     i=0
     for ad in adLinks:
         try:
@@ -24,8 +24,10 @@ def main():
             proxy = {'http': 'http://' + choice(proxies)}
             html = get_html(ad, useragent, proxy)
             soup = BeautifulSoup(html, 'lxml')
+            #ссылка
+            link = ad
             #название
-            title = soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
+            title = soup.find('div', class_='b-flex__item').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
             #модель
             #model= soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
             #марка
@@ -34,24 +36,9 @@ def main():
             price = soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_price__3dDCr AdvertCard_topAdvertHeaderCommon__2zUjb rouble').text.strip()
             #год выпуска
             YearOfCarManufacture = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[0].text.strip()
-            #пробег
-            Mileage = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[1].text.strip()
-            #кузов
-            BodyType = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[2].text.strip()
-            #коробка передач
-            gearbox = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[3].text.strip()
-            #Тип двигателя
-            engine = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[4].text.strip()
-            #Руль
-            SteeringWheel = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[5].text.strip()
             #цвет
             Color = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[6].text.strip()
-            #привод
-            DriveUnit = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[7].text.strip()
-            #мощность двигателя
-            enginePower = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[8].text.strip()
-            #количество владельцев
-            Ownership = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[10].text.strip()
+
         except:
             continue
 if __name__ == '__main__':

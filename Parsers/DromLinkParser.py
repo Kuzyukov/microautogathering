@@ -15,7 +15,7 @@ def get_html(url, useragent=None, proxy=None): #получение html кода
 def get_links_from_page(html):#получение ссылок из всех объявлений на странице
     soup = BeautifulSoup(html, 'lxml')
     ads = soup.find('div', class_='b-media-cont b-media-cont_modifyMobile_sm').find_all('a', class_="b-advItem")
-    f = open('DromLinks.txt', 'a')
+    f = open('someparsingresults/DromLinks.txt', 'a')
     for ad in ads:
         if ad.get('class') == ['b-advItem']:
             try:
@@ -27,8 +27,8 @@ def get_links_from_page(html):#получение ссылок из всех о�
 
 def main():
     #'https://chelyabinsk.drom.ru/lada/page10/?ph=1&mileage_condition=2&go_search=2'
-    useragents = open('useragents.txt').read().split('\n')
-    proxies = open('proxies.txt').read().split('\n')
+    useragents = open('hideparcing/useragents.txt').read().split('\n')
+    proxies = open('hideparcing/proxies.txt').read().split('\n')
 
     base_url = 'https://chelyabinsk.drom.ru/'
 

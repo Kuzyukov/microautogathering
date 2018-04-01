@@ -20,7 +20,7 @@ def get_html(url, useragent=None, proxy=None): #получение html кода
 def get_links_from_page(html):#получение ссылок из всех объявлений на странице
     soup = BeautifulSoup(html, 'lxml')
     ads = soup.find('div', class_='app_gridContentChildren__17ZMX').find_all('a', class_="SerpSnippet_name__3F7Yu blackLink")
-    f = open('AmruLinks.txt', 'a')
+    f = open('someparsingresults/AmruLinks.txt', 'a')
     for ad in ads:
         try:
             link_on_auto = ad.get('href')
@@ -31,8 +31,8 @@ def get_links_from_page(html):#получение ссылок из всех о�
 
 def main():
     #https://am.ru/chel/search/?brandId=local&brandOrigin=1&photo=1&sellers=1&searchOrder=3&page=1
-    useragents = open('useragents.txt').read().split('\n')
-    proxies = open('proxies.txt').read().split('\n')
+    useragents = open('hideparcing/useragents.txt').read().split('\n')
+    proxies = open('hideparcing/proxies.txt').read().split('\n')
 
     base_url = 'https://am.ru/chel/search/?'
     page_part = 'page='

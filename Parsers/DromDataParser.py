@@ -13,8 +13,8 @@ def get_html(url, useragent=None, proxy=None): #получение html кода
 def main():
     adLinks = useragents = open('someparsingresults/AmruLinks.txt').read().split('\n')
 
-    useragents = open('useragents.txt').read().split('\n')
-    proxies = open('proxies.txt').read().split('\n')
+    useragents = open('hideparcing/useragents.txt').read().split('\n')
+    proxies = open('hideparcing/proxies.txt').read().split('\n')
     i=0
     for ad in adLinks:
         try:
@@ -52,6 +52,7 @@ def main():
             enginePower = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[8].text.strip()
             #количество владельцев
             Ownership = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[10].text.strip()
+
         except:
             continue
 if __name__ == '__main__':

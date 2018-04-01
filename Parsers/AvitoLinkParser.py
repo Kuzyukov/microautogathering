@@ -20,7 +20,7 @@ def get_html(url, useragent=None, proxy=None): #получение html кода
 def get_links_from_page(html):#получение ссылок из всех объявлений на странице
     soup = BeautifulSoup(html, 'lxml')
     ads = soup.find('div', class_='catalog-main catalog_table').find_all('a', class_="item-description-title-link")
-    f = open('AvitoLinks.txt', 'a')
+    f = open('someparsingresults/AvitoLinks.txt', 'a')
     for ad in ads:
         try:
             link_on_auto = ad.get('href')
@@ -31,8 +31,8 @@ def get_links_from_page(html):#получение ссылок из всех о�
 
 def main():
     #'https://www.avito.ru/chelyabinsk/avtomobili/s_probegom/otechestvennie?s=104&user=1&i=1&p=2'
-    useragents = open('useragents.txt').read().split('\n')
-    proxies = open('proxies.txt').read().split('\n')
+    useragents = open('hideparcing/useragents.txt').read().split('\n')
+    proxies = open('hideparcing/proxies.txt').read().split('\n')
 
     base_url = 'https://www.avito.ru/chelyabinsk/avtomobili/s_probegom/otechestvennie?'
     page_part = 'p='
