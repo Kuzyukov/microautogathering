@@ -24,7 +24,7 @@ def get_links_from_page(html):#получение ссылок из всех о�
     for ad in ads:
         try:
             link_on_auto = ad.get('href')
-            f.write(link_on_auto + '\n')
+            f.write('https://www.avito.ru' + link_on_auto + '\n')
         except:
             continue
     f.close()
