@@ -1,7 +1,6 @@
 *.pyc
 microautogathering/settings_prod.py
-proxies.txt
-useragents.txt
+*.txt
 *.csv
 parserAutoru.py
 parserAvito.py
