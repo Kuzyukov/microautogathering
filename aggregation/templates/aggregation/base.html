@@ -74,15 +74,16 @@
                   <div class="title"><strong>{% block objectNameContainer %}{% endblock %}{% block statisticNameContainer %}{% endblock %}{% block AboutNameContainer %}{% endblock %}</strong></div>
                   {% endblock %}
                   <div class="block-body">
-                    {% block statisticContainerPage %}
-                    {% endblock %}
-                    {% block AboutContainerPage %}
-                    {% endblock %}
+
                     {% block listAuto %}
                     {% endblock %}
                   </div>
                 </div>
               </div>
+              {% block statisticContainerPage %}
+              {% endblock %}
+              {% block AboutContainerPage %}
+              {% endblock %}
               {% block objectContainer %}
               {% endblock %}
             </div>
