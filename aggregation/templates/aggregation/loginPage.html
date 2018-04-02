@@ -35,6 +35,7 @@
                     <h1>Добро пожаловать!</h1>
                   </div>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <a  href="{% url 'mainPage' %}" class="btn btn-secondary">Назад</a>
                 </div>
               </div>
             </div>
@@ -51,7 +52,7 @@
                       <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
                       <label for="login-password" class="label-material">Пароль</label>
                     </div><a id="login" href="index.html" class="btn btn-primary">Войти</a>
-                    <a  href="{% url 'mainPage' %}" class="btn btn-primary">Назад</a>
+
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">Восстановить пароль?</a><br><small>У вас нет аккаунта? </small><a href="register.html" class="signup">Создать</a>
                 </div>
