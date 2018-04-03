@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class ModelOfAuto(models.Model):
-    title = models.CharField("Модель автомобиля", max_lenght=100)
+    title = models.CharField("Модель автомобиля", max_length=100)
 
     class Meta:
         verbose_name="Модель автомобиля"
@@ -14,7 +14,7 @@ class ModelOfAuto(models.Model):
         return self.title
 
 class MarkOfAuto(models.Model):
-    title = models.CharField("Марка автомобиля", max_lenght=100)
+    title = models.CharField("Марка автомобиля", max_length=100)
 
     class Meta:
         verbose_name="Марка автомобиля"
@@ -24,7 +24,7 @@ class MarkOfAuto(models.Model):
         return self.title
 
 class BodyTypeOfAuto(models.Model):
-    title = models.CharField("Кузов автомобиля", max_lenght=100)
+    title = models.CharField("Кузов автомобиля", max_length=100)
 
     class Meta:
         verbose_name="Кузов автомобиля"
@@ -34,7 +34,7 @@ class BodyTypeOfAuto(models.Model):
         return self.title
 
 class ColorOfAuto(models.Model):
-    title = models.CharField("Цвет автомобиля", max_lenght=100)
+    title = models.CharField("Цвет автомобиля", max_length=100)
 
     class Meta:
         verbose_name="Цвет автомобиля"
@@ -44,7 +44,7 @@ class ColorOfAuto(models.Model):
         return self.title
 
 class TransmissionTypeOfAuto(models.Model):
-    title = models.CharField("Тип коробки передач автомобиля", max_lenght=100)
+    title = models.CharField("Тип коробки передач автомобиля", max_length=100)
 
     class Meta:
         verbose_name="Тип коробки передач автомобиля"
@@ -54,7 +54,7 @@ class TransmissionTypeOfAuto(models.Model):
         return self.title
 
 class DriveUnitOfAuto(models.Model):
-    title = models.CharField("Привод автомобиля", max_lenght=100)
+    title = models.CharField("Привод автомобиля", max_length=100)
 
     class Meta:
         verbose_name="Привод автомобиля"
@@ -64,23 +64,23 @@ class DriveUnitOfAuto(models.Model):
         return self.title
 
 class AvitoObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_lenght=1500)
-    AdName = models.CharField("Название объявления", max_lenght=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
+    AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
     Price = models.IntegerField()
     YearOfIssue  = models.IntegerField()
     Mileage  = models.IntegerField()
-    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля")
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля")
+    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.CASCADE)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
     EngineCapacity = models.IntegerField()
-    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач")
-    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод")
+    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.CASCADE)
+    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.CASCADE)
     NumberOfOwners = models.IntegerField()
     EnginePower = models.IntegerField()
     Description = models.TextField()
-    Picture = models.CharField("Ссылка на изображение", max_lenght=1500)
+    Picture = models.CharField("Ссылка на изображение", max_length=1500)
 
     class Meta:
         verbose_name="Авито"
@@ -90,13 +90,13 @@ class AvitoObject(models.Model):
         return self.AdName
 
 class DromObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_lenght=1500)
-    AdName = models.CharField("Название объявления", max_lenght=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
+    AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
     YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля")
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
     Mileage  = models.IntegerField()
     Price = models.IntegerField()
 
@@ -109,13 +109,13 @@ class DromObject(models.Model):
 
 
 class AMruObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_lenght=1500)
-    AdName = models.CharField("Название объявления", max_lenght=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
+    AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
     YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля")
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
     Mileage  = models.IntegerField()
     Price = models.IntegerField()
 
@@ -127,13 +127,13 @@ class AMruObject(models.Model):
         return self.AdName
 
 class YoulaObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_lenght=1500)
-    AdName = models.CharField("Название объявления", max_lenght=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
+    AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
     YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля")
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
     Mileage  = models.IntegerField()
     Price = models.IntegerField()
 
@@ -145,27 +145,27 @@ class YoulaObject(models.Model):
         return self.AdName
 
 class MainAdObject(models.Model):
-    AdName = models.CharField("Название объявления", max_lenght=100)
+    AdName = models.CharField("Название объявления", max_length=100)
 
-    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито")
-    Drom = models.ForeignKey(DromObject, verbose_name="Дром")
-    AMru = models.ForeignKey(AMruObject, verbose_name="Дром")
-    Youla = models.ForeignKey(YoulaObject, verbose_name="Дром")
+    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", on_delete=models.CASCADE)
+    Drom = models.ForeignKey(DromObject, verbose_name="Дром", on_delete=models.CASCADE)
+    AMru = models.ForeignKey(AMruObject, verbose_name="Дром", on_delete=models.CASCADE)
+    Youla = models.ForeignKey(YoulaObject, verbose_name="Дром", on_delete=models.CASCADE)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля")
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля")
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
     Price = models.IntegerField()
     YearOfIssue  = models.IntegerField()
     Mileage  = models.IntegerField()
-    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля")
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля")
+    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.CASCADE)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
     EngineCapacity = models.IntegerField()
-    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач")
-    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод")
+    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.CASCADE)
+    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.CASCADE)
     NumberOfOwners = models.IntegerField()
     EnginePower = models.IntegerField()
     Description = models.TextField()
-    Picture = models.CharField("Ссылка на изображение", max_lenght=1500)
+    Picture = models.CharField("Ссылка на изображение", max_length=1500)
 
     class Meta:
         verbose_name="Объявление"
@@ -181,14 +181,14 @@ class Comments(models.Model):
     user = models.ForeignKey(
         User,
         verbose_name="Пользователь",
-        on_delete=model.CASCADE)
+        on_delete=models.CASCADE)
     ad = models.ForeignKey(
         MainAdObject,
         verbose_name="Комментируемое Объявление",
-        on_delete=model.CASCADE)
+        on_delete=models.CASCADE)
     text = models.TextField("Текст комментария")
     created = models.DateTimeField("Дата добавления комментария", auto_now_add=True, null=True)
-    moderation model.BooleanField(default=False)
+    moderation = models.BooleanField(default=False)
     class Meta:
         verbose_name="Комментарий"
         verbose_name_plural="Комментарии"
