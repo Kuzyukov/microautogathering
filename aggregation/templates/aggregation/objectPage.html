@@ -5,7 +5,7 @@
 
 <div class="col-lg-12">
   <div class="block">
-    <div class="title"><strong>Регулярка с названием</strong></div>
+    <div class="title"><strong>{{ ad.AdName }}</strong></div>
   </div>
 </div>
 <!-- Inline Form-->
@@ -13,21 +13,46 @@
                 <div class="block">
                   <div class="title"><strong>Изображение</strong></div>
                   <div class="block-body">
-
+                      <img src="{{ ad.Picture }}" class="img-fluid">
                   </div>
                 </div>
               </div>
               <!-- Modal Form-->
               <div class="col-lg-4">
                 <div class="block">
-                  <div class="title"><strong>Короткое описание</strong></div>
-
+                  <div class="title"><strong>Ссылки</strong></div>
+                  <a  href="{{ ad.Avito }}" class="btn btn-secondary">Авито</a><br>
+                  <a  href="{{ ad.Drom }}" class="btn btn-secondary">Дром</a><br>
+                  <a  href="{{ ad.Youla }}" class="btn btn-secondary">Юла</a><br>
+                  <a  href="{{ ad.AMru }}" class="btn btn-secondary">АМру</a>
                  </div>
                </div>
             <!-- comments-->
             <div class="col-lg-12">
                <div class="block">
+                 <div class="title"><strong>Характеристики</strong></div>
+                 <div class="col-lg-6">
+                   <p>{{ ad.MarkAuto }}</p><br>
+                   <p>{{ ad.ModelAuto }}</p><br>
+                   <p>{{ ad.Price }}</p><br>
+                   <p>{{ ad.YearOfIssue }}</p><br>
+                   <p>{{ ad.Mileage }}</p><br>
+                   <p>{{ ad.BodyType }}</p>
+                 </div>
+                 <div class="col-lg-6">
+                   <p>{{ ad.Color }}</p><br>
+                   <p>{{ ad.EngineCapacity }}</p><br>
+                   <p>{{ ad.TransmissionType }}</p><br>
+                   <p>{{ ad.DriveUnit }}</p><br>
+                   <p>{{ ad.NumberOfOwners }}</p><br>
+                   <p>{{ ad.EnginePower }}</p>
+                 </div>
+               </div>
+            </div>
+            <div class="col-lg-12">
+               <div class="block">
                  <div class="title"><strong>Описание</strong></div>
+                 <p>{{ ad.Description }}</p>
                </div>
             </div>
             <!-- comments-->

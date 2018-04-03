@@ -9,5 +9,5 @@ urlpatterns = [
     path('statistic/', views.statisticPage, name = "statisticPage"),
     path('forum/', views.forumPage, name = "forumPage"),
     path('login/', views.loginPage, name = "loginPage"),
-    path('object/', views.objectPage, name = "objectPage"),
+    path('object/<int:pk>', views.objectPage, name = "objectPage"),
 ]
