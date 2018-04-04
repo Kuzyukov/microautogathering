@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+#pip install django-allauth
 User = get_user_model()
 
 class ModelOfAuto(models.Model):
