@@ -64,23 +64,23 @@ class DriveUnitOfAuto(models.Model):
         return self.title
 
 class AvitoObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
-    AdName = models.CharField("Название объявления", max_length=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500, null=True, blank=True)
+    AdName = models.CharField("Название объявления", max_length=100, null=True, blank=True)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
-    Price = models.IntegerField()
-    YearOfIssue  = models.IntegerField()
-    Mileage  = models.IntegerField()
-    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.SET_NULL, null=True)
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
-    EngineCapacity = models.FloatField()
-    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.SET_NULL, null=True)
-    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.SET_NULL, null=True)
-    NumberOfOwners = models.IntegerField()
-    EnginePower = models.IntegerField()
-    Description = models.TextField()
-    Picture = models.CharField("Ссылка на изображение", max_length=1500)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Price = models.IntegerField(blank=True, null=True)
+    YearOfIssue  = models.IntegerField(blank=True, null=True)
+    Mileage  = models.IntegerField(blank=True, null=True)
+    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    EngineCapacity = models.FloatField(blank=True, null=True)
+    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.SET_NULL, null=True, blank=True)
+    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.SET_NULL, null=True, blank=True)
+    NumberOfOwners = models.IntegerField(blank=True, null=True)
+    EnginePower = models.IntegerField(blank=True, null=True)
+    Description = models.TextField(blank=True, null=True)
+    Picture = models.CharField("Ссылка на изображение", max_length=1500, null=True, blank=True)
 
     class Meta:
         verbose_name="Авито"
@@ -90,15 +90,15 @@ class AvitoObject(models.Model):
         return self.AdName
 
 class DromObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
-    AdName = models.CharField("Название объявления", max_length=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500, null=True, blank=True)
+    AdName = models.CharField("Название объявления", max_length=100, null=True, blank=True)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
-    YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
-    Mileage  = models.IntegerField()
-    Price = models.IntegerField()
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    YearOfIssue  = models.IntegerField(blank=True, null=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Mileage  = models.IntegerField(blank=True, null=True)
+    Price = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name="Дром"
@@ -109,15 +109,15 @@ class DromObject(models.Model):
 
 
 class AMruObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
-    AdName = models.CharField("Название объявления", max_length=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500, null=True, blank=True)
+    AdName = models.CharField("Название объявления", max_length=100, null=True, blank=True)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
-    YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
-    Mileage  = models.IntegerField()
-    Price = models.IntegerField()
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    YearOfIssue  = models.IntegerField(blank=True, null=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Mileage  = models.IntegerField(blank=True, null=True)
+    Price = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name="АМру"
@@ -127,15 +127,15 @@ class AMruObject(models.Model):
         return self.AdName
 
 class YoulaObject(models.Model):
-    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
-    AdName = models.CharField("Название объявления", max_length=100)
+    linkOnAd = models.CharField("Ссылка на объявление", max_length=1500, null=True, blank=True)
+    AdName = models.CharField("Название объявления", max_length=100, null=True, blank=True)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
-    YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
-    Mileage  = models.IntegerField()
-    Price = models.IntegerField()
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    YearOfIssue  = models.IntegerField(blank=True, null=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Mileage  = models.IntegerField(blank=True, null=True)
+    Price = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name="Юла"
@@ -145,28 +145,28 @@ class YoulaObject(models.Model):
         return self.AdName
 
 class MainAdObject(models.Model):
-    AdName = models.CharField("Название объявления", max_length=100)
+    AdName = models.CharField("Название объявления", max_length=100, null=True, blank=True)
 
-    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", blank=True, on_delete=models.SET_NULL, null=True)
-    Drom = models.ForeignKey(DromObject, verbose_name="Дром", blank=True, on_delete=models.SET_NULL, null=True)
-    AMru = models.ForeignKey(AMruObject, verbose_name="АМру", blank=True, on_delete=models.SET_NULL, null=True)
-    Youla = models.ForeignKey(YoulaObject, verbose_name="Юла", blank=True, on_delete=models.SET_NULL, null=True)
+    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
+    Drom = models.ForeignKey(DromObject, verbose_name="Дром", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
+    AMru = models.ForeignKey(AMruObject, verbose_name="АМру", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
+    Youla = models.ForeignKey(YoulaObject, verbose_name="Юла", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
-    Price = models.IntegerField()
-    YearOfIssue  = models.IntegerField()
-    Mileage  = models.IntegerField()
-    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.SET_NULL, null=True)
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
-    EngineCapacity = models.FloatField()
-    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.SET_NULL, null=True)
-    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.SET_NULL, null=True)
-    NumberOfOwners = models.IntegerField()
-    EnginePower = models.IntegerField()
-    Description = models.TextField()
-    minDescription = models.CharField("Описание", max_length=500, blank=True)
-    Picture = models.CharField("Ссылка на изображение", max_length=1500)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Price = models.IntegerField(blank=True, null=True)
+    YearOfIssue  = models.IntegerField(blank=True, null=True)
+    Mileage  = models.IntegerField(blank=True, null=True)
+    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
+    EngineCapacity = models.FloatField(blank=True, null=True)
+    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.SET_NULL, null=True, blank=True)
+    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.SET_NULL, null=True, blank=True)
+    NumberOfOwners = models.IntegerField(blank=True, null=True)
+    EnginePower = models.IntegerField(blank=True, null=True)
+    Description = models.TextField(blank=True, null=True)
+    minDescription = models.CharField("Описание", max_length=500, blank=True, null=True, blank=True)
+    Picture = models.CharField("Ссылка на изображение", max_length=1500, null=True, blank=True)
 
     class Meta:
         verbose_name="Объявление"
@@ -182,14 +182,13 @@ class Comments(models.Model):
     user = models.ForeignKey(
         User,
         verbose_name="Пользователь",
-        on_delete=models.SET_NULL, null=True)
+        on_delete=models.SET_NULL, null=True, blank=True)
     ad = models.ForeignKey(
         MainAdObject,
         verbose_name="Комментируемое Объявление",
-        on_delete=models.SET_NULL, null=True)
-    text = models.TextField("Текст комментария")
-    created = models.DateTimeField("Дата добавления комментария", auto_now_add=True, null=True)
-    moderation = models.BooleanField(default=False)
+        on_delete=models.SET_NULL, null=True, blank=True)
+    text = models.TextField("Текст комментария", blank=True, null=True)
+    created = models.DateTimeField("Дата добавления комментария", auto_now_add=True, null=True, blank=True)
     class Meta:
         verbose_name="Комментарий"
         verbose_name_plural="Комментарии"

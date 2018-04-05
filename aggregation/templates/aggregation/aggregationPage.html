@@ -142,7 +142,11 @@
               </div>
               <div class="col-md-7">
                 <a href="{% url 'objectPage' pk=ad.id %}" class="objectLink"><strong>{{ ad.AdName }}</strong></a>
+                    {% if ad.minDescription != null %}
                   <p>{{ ad.minDescription }}</p>
+                  {% else %}
+                   <p>Нет описания</p>
+                  {% endif %}
               </div>
             <div class="col-md-2">
               <p>Цена: {{ ad.Price }}</p><hr>

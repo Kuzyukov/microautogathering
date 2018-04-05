@@ -25,19 +25,21 @@ def main():
             html = get_html(ad, useragent, proxy)
             soup = BeautifulSoup(html, 'lxml')
             #ссылка
-            link = ad
+            linkOnAd = ad
             #название
-            title = soup.find('div', class_='b-flex__item').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
-            #модель
-            #model= soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
+            AdName = soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
             #марка
-            #mark= soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip()
-            #цена
-            price = soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_price__3dDCr AdvertCard_topAdvertHeaderCommon__2zUjb rouble').text.strip()
+            MarkAuto= soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip().split(' ')[0]
+            #модель
+            ModelAuto= soup.find('div', class_='AdvertCard_pageContent__24SCy app_pageBlock__19Uub').find('div', class_='AdvertCard_advertTitle__1S1Ak').text.strip().split(' ')[2]
             #год выпуска
-            YearOfCarManufacture = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[0].text.strip()
+            YearOfIssue =  int(soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[0].text.strip())
             #цвет
             Color = soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[6].text.strip()
+            #пробег
+            Mileage = int(soup.find('div', class_='AdvertCard_specs__2FEHc').find_all('div', class_="AdvertSpecs_data__xK2Qx")[1].text.strip().replace(' ','').replace('км',''))
+            #цена
+            price = int(soup.find('div', class_='AdvertCard_price__3dDCr AdvertCard_topAdvertHeaderCommon__2zUjb rouble').text.strip().replace(' ',''))
 
         except:
             continue

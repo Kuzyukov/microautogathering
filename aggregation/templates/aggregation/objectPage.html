@@ -46,11 +46,11 @@
                   {% endif %}
                </div>
              </div>
-             </div>
-             </div>
-             </div>
-             </div>
-             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
             <!-- comments-->
             <div class="col-lg-6">
@@ -83,7 +83,11 @@
             <div class="col-lg-12">
                <div class="block">
                  <div class="title"><strong>Описание</strong></div>
+                  {% if ad.Description != null %}
                  <p>{{ ad.Description }}</p>
+                 {% else %}
+                  <p>Нет описания</p>
+                 {% endif %}
                </div>
             </div>
             <!-- comments-->
