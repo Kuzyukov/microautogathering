@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from aggregation.models import MainAdObject
+from aggregation.models import MainAdObject, Comments
+from aggregation.forms import CommentForm
 
 def agregationPage(request):
     #вывод всех объявлений
@@ -28,4 +29,17 @@ def loginPage(request):
 def objectPage(request, pk):
     #вызов статьи по prymary key
     ad = get_object_or_404(MainAdObject, id=pk)
-    return render(request, 'aggregation/objectPage.html', {"ad": ad})
+    comment = Comments.objects.filter(ad=pk)
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form=form.save(commit=False)
+            form.user = request.user
+            form.ad = ad
+            form.save()
+            return redirect(objectPage, pk)
+    else:
+        form = CommentForm()
+
+    return render(request, 'aggregation/objectPage.html', {"ad": ad, "comments": comment, "form": form})
