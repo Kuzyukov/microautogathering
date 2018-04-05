@@ -1,9 +1,12 @@
 import requests
+import psycopg2
 from bs4 import BeautifulSoup
 from random import choice
 from time import sleep
 from random import uniform
 
+connect = psycopg2.connect(database='postdb', user='postgressuser', host='localhost', password='password')
+cursor = connect.cursor()
 
 def get_html(url, useragent=None, proxy=None): #получение html кода стрраницы в текстовом виде
     r = requests.get(url, headers=useragent, proxies=proxy)
@@ -26,42 +29,102 @@ def main():
             soup = BeautifulSoup(html, 'lxml')
             #ссылка
             linkOnAd = ad
+
             #название
-            AdName = soup.find('span', class_='title-info-title-text').text.strip()
+            try:
+                AdName = soup.find('span', class_='title-info-title-text').text.strip()
+            except:
+                AdName = ''
+"""
             #марка
-            MarkAuto = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[0].text.strip().split(' ')[1]
+            try:
+                MarkAuto = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[0].text.strip().split(' ')[1]
+            except:
+                MarkAuto = 1
+
             #модель
-            ModelAuto = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[1].text.strip().split(' ')[1]
+            try:
+                ModelAuto = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[1].text.strip().split(' ')[1]
+            except:
+                ModelAuto = 1
+"""
             #цена
-            price = int(soup.find('div', class_='item-price').find('span', class_='price-value-string js-price-value-string').text.strip().split('\xa0₽')[0].replace(' ',''))
+            try:
+                Price = int(soup.find('div', class_='item-price').find('span', class_='price-value-string js-price-value-string').text.strip().split('\xa0₽')[0].replace(' ',''))
+            except:
+                Price = ''
 
             #год выпуска
-            YearOfIssue = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[2].text.strip().split(' ')[2])
+            try:
+                YearOfIssue = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[2].text.strip().split(' ')[2])
+            except:
+                YearOfIssue = ''
+
             #пробег
-            Mileage = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[3].text.strip().split(' ')[1].split('\xa0км')[0])
+            try:
+                Mileage = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[3].text.strip().split(' ')[1].split('\xa0км')[0])
+            except:
+                Mileage = ''
+"""
             #BodyType
-            BodyType = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[4].text.strip().split(' ')[2]
+            try:
+                BodyType = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[4].text.strip().split(' ')[2]
+            except:
+                BodyType = 1
+
             #цвет
-            Color = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[5].text.strip().split(' ')[1]
+            try:
+                Color = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[5].text.strip().split(' ')[1]
+            except:
+                Color = 1
+"""
             #Объём двигателя
-            EngineCapacity = float(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[6].text.strip().split(' ')[2].split('\xa0л')[0])
+            try:
+                EngineCapacity = float(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[6].text.strip().split(' ')[2].split('\xa0л')[0])
+            except:
+                EngineCapacity = ''
+"""
             #тип коробки передач
-            TransmissionType = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[8].text.strip().split(' ')[2]
+            try:
+                TransmissionType = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[8].text.strip().split(' ')[2]
+            except:
+                continue
+
             #привод
-            DriveUnit = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[10].text.strip().split(' ')[1]
+            try:
+                DriveUnit = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[10].text.strip().split(' ')[1]
+            except:
+                continue
+"""
             #Количество владельцев
-            NumberOfOwners = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[13].text.strip().split(' ')[3])
+            try:
+                NumberOfOwners = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[13].text.strip().split(' ')[3])
+            except:
+                NumberOfOwners = ''
+
             #мощьность двигателя
-            EnginePower = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[15].text.strip().split(' ')[2].split('\xa0л.с.')[0])
+            try:
+                EnginePower = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[15].text.strip().split(' ')[2].split('\xa0л.с.')[0])
+            except:
+                EnginePower = ''
             #описание
-            Description = soup.find('div', class_='item-description-text').text.strip()
+            try:
+                Description = soup.find('div', class_='item-description-text').text.strip()
+            except:
+                Description =''
+
             #Изображение
-            Picture ='https:' +  soup.find('div', class_='gallery-img-frame js-gallery-img-frame').get('data-url')
+            try:
+                Picture ='https:' +  soup.find('div', class_='gallery-img-frame js-gallery-img-frame').get('data-url')
+            except:
+                Picture = ''
             #Циклическое получение картикок
             #Picture = 'https:' + soup.find('div', class_='gallery-imgs-container js-gallery-imgs-container').find_all('div', class_='gallery-img-frame js-gallery-img-frame')[1].get('data-url')
-
+            cursor.execute('INSERT INTO aggregation_avitoobject(linkOnAd, AdName, Price, YearOfIssue, Mileage, EngineCapacity, NumberOfOwners, EnginePower, Description, Picture) VALUES ('" + linkOnAd + "','" + AdName + "','" + Price + "','" + YearOfIssue + "','" + Mileage + "','" + EngineCapacity + "','" + NumberOfOwners + "','" + EnginePower + "','" + Description + "','" + Picture + "');')
+            connect.commit()
 
         except:
             continue
+connect.close()
 if __name__ == '__main__':
     main()
