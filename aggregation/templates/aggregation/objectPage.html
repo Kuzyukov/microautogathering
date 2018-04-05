@@ -10,40 +10,57 @@
 </div>
 -->
 <!-- Inline Form-->
-              <div class="col-lg-7">
-                <div class="block">
+<div class="col-lg-12">
+  <div class="block">
+    <div class="block-body">
+      <div class="form-group row">
+          <div class="col">
+            <div class="row">
+              <div class="col-lg-7" style="border-right:2px solid #2e2e2e;">
                   <div class="title"><strong>{{ ad.AdName }}</strong></div>
                   <div class="block-body">
-                      <img src="{{ ad.Picture }}" class="img-fluid">
+                      <img src="{{ ad.Picture }}" class="img-fluid" style="display:block; margin-left:auto; margin-right:auto;">
                   </div>
-                </div>
               </div>
               <!-- Modal Form-->
-              <div class="col-lg-2">
-                <div class="block">
-                  <div class="title"><strong>Ссылки</strong></div>
-                  <a  href="{{ ad.Avito.linkOnAd }}" class="btn btn-secondary">Авито</a><br>
-                  <a  href="{{ ad.Drom.linkOnAd }}" class="btn btn-secondary">Дром</a><br>
-                  <a  href="{{ ad.Youla.linkOnAd }}" class="btn btn-secondary">Юла</a><br>
-                  <a  href="{{ ad.AMru.linkOnAd }}" class="btn btn-secondary">АМру</a>
-                 </div>
+              <div class="col-lg-3" style="border-right:2px solid #2e2e2e;">
+                  <br><br>
+                  <div class="title"><strong>Цена: {{ ad.Price }} руб.</strong></div><br><hr><br>
+                  <div class="title"><strong>Пробег: {{ ad.Mileage }} км</strong></div><br><hr><br>
+                  <div class="title"><strong>Марка автомобиля: {{ ad.MarkAuto }}</strong></div><br><hr><br>
+                  <div class="title"><strong>Модель автомобиля: {{ ad.ModelAuto }}</strong></div>
                </div>
-               <div class="col-lg-3">
-                 <div class="block">
-                   <div class="title"><strong>Цена: {{ ad.Price }} руб.</strong></div>
-                   <div class="title"><strong>Пробег: {{ ad.Mileage }} км</strong></div>
+               <div class="col-lg-2">
+                 <br><br>
+                  {% if ad.Avito.linkOnAd != null %}
+                 <a style="float:right;"  href="{{ ad.Avito.linkOnAd }}" class="btn btn-secondary">Авито</a><br><br>
+                  {% endif %}
+                  {% if ad.Drom.linkOnAd != null %}
+                 <a style="float:right;" href="{{ ad.Drom.linkOnAd }}" class="btn btn-secondary">Дром</a><br><br>
+                  {% endif %}
+                  {% if ad.Youla.linkOnAd != null %}
+                 <a style="float:right;" href="{{ ad.Youla.linkOnAd }}" class="btn btn-secondary">Юла</a><br><br>
+                  {% endif %}
+                  {% if ad.AMru.linkOnAd != null %}
+                 <a style="float:right;" href="{{ ad.AMru.linkOnAd }}" class="btn btn-secondary">АМру</a>
+                  {% endif %}
+               </div>
+             </div>
+             </div>
+             </div>
+             </div>
+             </div>
+             </div>
 
-                  </div>
-                </div>
             <!-- comments-->
             <div class="col-lg-6">
               <div class="block">
                 <div class="title"><strong>Характеристики</strong></div>
                 <div class="block-body">
-                  <p>Год выпуска: {{ ad.YearOfIssue }}</p><br>
-                  <p>Количество владельцев: {{ ad.NumberOfOwners }}</p><br>
-                  <p>Цвет: {{ ad.Color }}</p><br>
-                  <p>Коробка передач: {{ ad.TransmissionType }}</p><br>
+                  <p>Год выпуска: {{ ad.YearOfIssue }}</p><hr>
+                  <p>Количество владельцев: {{ ad.NumberOfOwners }}</p><hr>
+                  <p>Цвет: {{ ad.Color }}</p><hr>
+                  <p>Коробка передач: {{ ad.TransmissionType }}</p><hr>
                   <p>Привод: {{ ad.DriveUnit }}</p>
 
                 </div>
@@ -54,10 +71,10 @@
               <div class="block">
                 <div class="block-body">
                   <br><br>
-                  <p>Марка автомобиля: {{ ad.MarkAuto }}</p><br>
-                  <p>Модель автомобиля: {{ ad.ModelAuto }}</p><br>
-                  <p>Тип кузова: {{ ad.BodyType }}</p><br>
-                  <p>Объём двигателя: {{ ad.EngineCapacity }}</p><br>
+                  <p>Марка автомобиля: {{ ad.MarkAuto }}</p><hr>
+                  <p>Модель автомобиля: {{ ad.ModelAuto }}</p><hr>
+                  <p>Тип кузова: {{ ad.BodyType }}</p><hr>
+                  <p>Объём двигателя: {{ ad.EngineCapacity }}</p><hr>
                   <p>Мощьность двигателя: {{ ad.EnginePower }}</p>
                 </div>
                </div>

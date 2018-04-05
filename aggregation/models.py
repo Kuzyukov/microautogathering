@@ -67,16 +67,16 @@ class AvitoObject(models.Model):
     linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
     AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
     Price = models.IntegerField()
     YearOfIssue  = models.IntegerField()
     Mileage  = models.IntegerField()
-    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.CASCADE)
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
+    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.SET_NULL, null=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
     EngineCapacity = models.FloatField()
-    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.CASCADE)
-    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.CASCADE)
+    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.SET_NULL, null=True)
+    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.SET_NULL, null=True)
     NumberOfOwners = models.IntegerField()
     EnginePower = models.IntegerField()
     Description = models.TextField()
@@ -93,10 +93,10 @@ class DromObject(models.Model):
     linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
     AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
     YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
     Mileage  = models.IntegerField()
     Price = models.IntegerField()
 
@@ -112,10 +112,10 @@ class AMruObject(models.Model):
     linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
     AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
     YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
     Mileage  = models.IntegerField()
     Price = models.IntegerField()
 
@@ -130,10 +130,10 @@ class YoulaObject(models.Model):
     linkOnAd = models.CharField("Ссылка на объявление", max_length=1500)
     AdName = models.CharField("Название объявления", max_length=100)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
     YearOfIssue  = models.IntegerField()
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
     Mileage  = models.IntegerField()
     Price = models.IntegerField()
 
@@ -152,16 +152,16 @@ class MainAdObject(models.Model):
     AMru = models.ForeignKey(AMruObject, verbose_name="АМру", blank=True, on_delete=models.SET_NULL, null=True)
     Youla = models.ForeignKey(YoulaObject, verbose_name="Юла", blank=True, on_delete=models.SET_NULL, null=True)
 
-    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
-    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
+    MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True)
+    ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True)
     Price = models.IntegerField()
     YearOfIssue  = models.IntegerField()
     Mileage  = models.IntegerField()
-    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.CASCADE)
-    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
+    BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.SET_NULL, null=True)
+    Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.SET_NULL, null=True)
     EngineCapacity = models.FloatField()
-    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.CASCADE)
-    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.CASCADE)
+    TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.SET_NULL, null=True)
+    DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.SET_NULL, null=True)
     NumberOfOwners = models.IntegerField()
     EnginePower = models.IntegerField()
     Description = models.TextField()
@@ -182,11 +182,11 @@ class Comments(models.Model):
     user = models.ForeignKey(
         User,
         verbose_name="Пользователь",
-        on_delete=models.CASCADE)
+        on_delete=models.SET_NULL, null=True)
     ad = models.ForeignKey(
         MainAdObject,
         verbose_name="Комментируемое Объявление",
-        on_delete=models.CASCADE)
+        on_delete=models.SET_NULL, null=True)
     text = models.TextField("Текст комментария")
     created = models.DateTimeField("Дата добавления комментария", auto_now_add=True, null=True)
     moderation = models.BooleanField(default=False)
