@@ -35,7 +35,7 @@ def main():
                 AdName = soup.find('span', class_='title-info-title-text').text.strip()
             except:
                 AdName = ''
-"""
+                """
             #марка
             try:
                 MarkAuto = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[0].text.strip().split(' ')[1]
@@ -47,7 +47,7 @@ def main():
                 ModelAuto = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[1].text.strip().split(' ')[1]
             except:
                 ModelAuto = 1
-"""
+                """
             #цена
             try:
                 Price = int(soup.find('div', class_='item-price').find('span', class_='price-value-string js-price-value-string').text.strip().split('\xa0₽')[0].replace(' ',''))
@@ -65,7 +65,7 @@ def main():
                 Mileage = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[3].text.strip().split(' ')[1].split('\xa0км')[0])
             except:
                 Mileage = ''
-"""
+                """
             #BodyType
             try:
                 BodyType = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[4].text.strip().split(' ')[2]
@@ -77,13 +77,13 @@ def main():
                 Color = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[5].text.strip().split(' ')[1]
             except:
                 Color = 1
-"""
+                """
             #Объём двигателя
             try:
                 EngineCapacity = float(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[6].text.strip().split(' ')[2].split('\xa0л')[0])
             except:
                 EngineCapacity = ''
-"""
+                """
             #тип коробки передач
             try:
                 TransmissionType = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[8].text.strip().split(' ')[2]
@@ -95,7 +95,7 @@ def main():
                 DriveUnit = soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[10].text.strip().split(' ')[1]
             except:
                 continue
-"""
+                """
             #Количество владельцев
             try:
                 NumberOfOwners = int(soup.find('ul', class_='item-params-list').find_all('li', class_="item-params-list-item")[13].text.strip().split(' ')[3])
