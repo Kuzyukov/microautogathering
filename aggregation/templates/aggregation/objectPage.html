@@ -96,9 +96,10 @@
                 <div class="title"><strong>Комментарии</strong></div>
                 {% for comment in comments %}
                 Пользователь - {{ comment.user }}<br>
-                {{ comment.text }}
-                {{ comment.created }}
+                {{ comment.text }}<br>
+                Комментарий оставлен - {{ comment.created }}<br><br><br>
                 {% endfor %}
+                <br><br>
                 <form action="" method="post">
                   {% csrf_token %}
                   {{ form.as_p }}
