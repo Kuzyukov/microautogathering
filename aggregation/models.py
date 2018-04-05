@@ -147,10 +147,10 @@ class YoulaObject(models.Model):
 class MainAdObject(models.Model):
     AdName = models.CharField("Название объявления", max_length=100, null=True, blank=True)
 
-    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
-    Drom = models.ForeignKey(DromObject, verbose_name="Дром", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
-    AMru = models.ForeignKey(AMruObject, verbose_name="АМру", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
-    Youla = models.ForeignKey(YoulaObject, verbose_name="Юла", blank=True, on_delete=models.SET_NULL, null=True, blank=True)
+    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", blank=True, on_delete=models.SET_NULL, null=True)
+    Drom = models.ForeignKey(DromObject, verbose_name="Дром", blank=True, on_delete=models.SET_NULL, null=True)
+    AMru = models.ForeignKey(AMruObject, verbose_name="АМру", blank=True, on_delete=models.SET_NULL, null=True)
+    Youla = models.ForeignKey(YoulaObject, verbose_name="Юла", blank=True, on_delete=models.SET_NULL, null=True)
 
     MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
     ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.SET_NULL, null=True, blank=True)
@@ -165,7 +165,7 @@ class MainAdObject(models.Model):
     NumberOfOwners = models.IntegerField(blank=True, null=True)
     EnginePower = models.IntegerField(blank=True, null=True)
     Description = models.TextField(blank=True, null=True)
-    minDescription = models.CharField("Описание", max_length=500, blank=True, null=True, blank=True)
+    minDescription = models.CharField("Описание", max_length=500, blank=True, null=True)
     Picture = models.CharField("Ссылка на изображение", max_length=1500, null=True, blank=True)
 
     class Meta:
