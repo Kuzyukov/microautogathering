@@ -141,13 +141,13 @@
                 <img src="{{ ad.Picture }}" class="img-fluid"></img>
               </div>
               <div class="col-md-7">
-                <a href="{% url 'objectPage' pk=ad.id %}" class="objectLink"><strong>{{ ad.title }}</strong></a>
-                  <p>{{ ad.Description }}</p>
+                <a href="{% url 'objectPage' pk=ad.id %}" class="objectLink"><strong>{{ ad.AdName }}</strong></a>
+                  <p>{{ ad.minDescription }}</p>
               </div>
             <div class="col-md-2">
-              <p>{{ ad.Price }}</p>
-              <p>{{ ad.Mileage }}</p>
-              <p>{{ ad.YearOfIssue }}</p>
+              <p>Цена: {{ ad.Price }}</p>
+              <p>Пробег: {{ ad.Mileage }}</p>
+              <p>Год выпуска{{ ad.YearOfIssue }}</p>
             </div>
           </div>
         </div>

@@ -2,53 +2,67 @@
 
 {% block objectNamePage %}Объявление{% endblock %}
 {% block objectContainer %}
-
+<!--
 <div class="col-lg-12">
   <div class="block">
-    <div class="title"><strong>{{ ad.AdName }}</strong></div>
+    <div class="title"><strong>Название</strong></div>
   </div>
 </div>
+-->
 <!-- Inline Form-->
-              <div class="col-lg-8">
+              <div class="col-lg-7">
                 <div class="block">
-                  <div class="title"><strong>Изображение</strong></div>
+                  <div class="title"><strong>{{ ad.AdName }}</strong></div>
                   <div class="block-body">
                       <img src="{{ ad.Picture }}" class="img-fluid">
                   </div>
                 </div>
               </div>
               <!-- Modal Form-->
-              <div class="col-lg-4">
+              <div class="col-lg-2">
                 <div class="block">
                   <div class="title"><strong>Ссылки</strong></div>
-                  <a  href="{{ ad.Avito }}" class="btn btn-secondary">Авито</a><br>
-                  <a  href="{{ ad.Drom }}" class="btn btn-secondary">Дром</a><br>
-                  <a  href="{{ ad.Youla }}" class="btn btn-secondary">Юла</a><br>
-                  <a  href="{{ ad.AMru }}" class="btn btn-secondary">АМру</a>
+                  <a  href="{{ ad.Avito.linkOnAd }}" class="btn btn-secondary">Авито</a><br>
+                  <a  href="{{ ad.Drom.linkOnAd }}" class="btn btn-secondary">Дром</a><br>
+                  <a  href="{{ ad.Youla.linkOnAd }}" class="btn btn-secondary">Юла</a><br>
+                  <a  href="{{ ad.AMru.linkOnAd }}" class="btn btn-secondary">АМру</a>
                  </div>
                </div>
+               <div class="col-lg-3">
+                 <div class="block">
+                   <div class="title"><strong>Цена: {{ ad.Price }} руб.</strong></div>
+                   <div class="title"><strong>Пробег: {{ ad.Mileage }} км</strong></div>
+
+                  </div>
+                </div>
             <!-- comments-->
-            <div class="col-lg-12">
-               <div class="block">
-                 <div class="title"><strong>Характеристики</strong></div>
-                 <div class="col-lg-6">
-                   <p>{{ ad.MarkAuto }}</p><br>
-                   <p>{{ ad.ModelAuto }}</p><br>
-                   <p>{{ ad.Price }}</p><br>
-                   <p>{{ ad.YearOfIssue }}</p><br>
-                   <p>{{ ad.Mileage }}</p><br>
-                   <p>{{ ad.BodyType }}</p>
-                 </div>
-                 <div class="col-lg-6">
-                   <p>{{ ad.Color }}</p><br>
-                   <p>{{ ad.EngineCapacity }}</p><br>
-                   <p>{{ ad.TransmissionType }}</p><br>
-                   <p>{{ ad.DriveUnit }}</p><br>
-                   <p>{{ ad.NumberOfOwners }}</p><br>
-                   <p>{{ ad.EnginePower }}</p>
-                 </div>
-               </div>
+            <div class="col-lg-6">
+              <div class="block">
+                <div class="title"><strong>Характеристики</strong></div>
+                <div class="block-body">
+                  <p>Год выпуска: {{ ad.YearOfIssue }}</p><br>
+                  <p>Количество владельцев: {{ ad.NumberOfOwners }}</p><br>
+                  <p>Цвет: {{ ad.Color }}</p><br>
+                  <p>Коробка передач: {{ ad.TransmissionType }}</p><br>
+                  <p>Привод: {{ ad.DriveUnit }}</p>
+
+                </div>
+              </div>
             </div>
+            <!-- Modal Form-->
+            <div class="col-lg-6">
+              <div class="block">
+                <div class="block-body">
+                  <br><br>
+                  <p>Марка автомобиля: {{ ad.MarkAuto }}</p><br>
+                  <p>Модель автомобиля: {{ ad.ModelAuto }}</p><br>
+                  <p>Тип кузова: {{ ad.BodyType }}</p><br>
+                  <p>Объём двигателя: {{ ad.EngineCapacity }}</p><br>
+                  <p>Мощьность двигателя: {{ ad.EnginePower }}</p>
+                </div>
+               </div>
+             </div>
+
             <div class="col-lg-12">
                <div class="block">
                  <div class="title"><strong>Описание</strong></div>

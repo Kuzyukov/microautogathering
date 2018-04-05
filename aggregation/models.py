@@ -74,7 +74,7 @@ class AvitoObject(models.Model):
     Mileage  = models.IntegerField()
     BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.CASCADE)
     Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
-    EngineCapacity = models.IntegerField()
+    EngineCapacity = models.FloatField()
     TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.CASCADE)
     DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.CASCADE)
     NumberOfOwners = models.IntegerField()
@@ -147,10 +147,10 @@ class YoulaObject(models.Model):
 class MainAdObject(models.Model):
     AdName = models.CharField("Название объявления", max_length=100)
 
-    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", on_delete=models.CASCADE)
-    Drom = models.ForeignKey(DromObject, verbose_name="Дром", on_delete=models.CASCADE)
-    AMru = models.ForeignKey(AMruObject, verbose_name="Дром", on_delete=models.CASCADE)
-    Youla = models.ForeignKey(YoulaObject, verbose_name="Дром", on_delete=models.CASCADE)
+    Avito = models.ForeignKey(AvitoObject, verbose_name="Авито", blank=True, on_delete=models.SET_NULL, null=True)
+    Drom = models.ForeignKey(DromObject, verbose_name="Дром", blank=True, on_delete=models.SET_NULL, null=True)
+    AMru = models.ForeignKey(AMruObject, verbose_name="АМру", blank=True, on_delete=models.SET_NULL, null=True)
+    Youla = models.ForeignKey(YoulaObject, verbose_name="Юла", blank=True, on_delete=models.SET_NULL, null=True)
 
     MarkAuto = models.ForeignKey(MarkOfAuto, verbose_name="Марка автомобиля", on_delete=models.CASCADE)
     ModelAuto = models.ForeignKey(ModelOfAuto, verbose_name="Модель автомобиля", on_delete=models.CASCADE)
@@ -159,12 +159,13 @@ class MainAdObject(models.Model):
     Mileage  = models.IntegerField()
     BodyType = models.ForeignKey(BodyTypeOfAuto, verbose_name="Тип кузова автомобиля", on_delete=models.CASCADE)
     Color = models.ForeignKey(ColorOfAuto, verbose_name="Цвет автомобиля", on_delete=models.CASCADE)
-    EngineCapacity = models.IntegerField()
+    EngineCapacity = models.FloatField()
     TransmissionType = models.ForeignKey(TransmissionTypeOfAuto, verbose_name="Тип коробки передач", on_delete=models.CASCADE)
     DriveUnit = models.ForeignKey(DriveUnitOfAuto, verbose_name="Привод", on_delete=models.CASCADE)
     NumberOfOwners = models.IntegerField()
     EnginePower = models.IntegerField()
     Description = models.TextField()
+    minDescription = models.CharField("Описание", max_length=500, blank=True)
     Picture = models.CharField("Ссылка на изображение", max_length=1500)
 
     class Meta:
