@@ -100,11 +100,13 @@
                 Комментарий оставлен - {{ comment.created }}<br><br><br>
                 {% endfor %}
                 <br><br>
+                {% if comment.user != Null %}
                 <form action="" method="post">
                   {% csrf_token %}
                   {{ form.as_p }}
                   <button type="submit">Отправить</button>
                 </form>
+                {% endif %}
               </div>
             </div>
 {% endblock %}
